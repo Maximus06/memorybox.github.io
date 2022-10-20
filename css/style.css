@@ -1,0 +1,77 @@
+:root {
+   --rouge : #ff0000;
+   --ocre : #991f00;   
+   --cian : #00ffff;   
+   --bleu-marine : #0066ff;
+   --bleu : #33adff;
+   --vert-fonce : #003300;
+   --vert : #00cc00;
+   --vert-clair : #00ff00;
+   --caca : #bf8040;
+   --beige : #ffad99;
+   --orange-naruto : #ff6600;
+   --orange-fade : #ffc266;
+   --jaune : #ffcc00;
+   --violet : #9900cc;
+   --violet-light : #cc66ff;
+   --violet-hisoka : #ff00ff;
+   --noir : #4d4d4d;
+   --gris : #b3b3b3;
+}
+
+.cursor-pointer {
+   cursor: pointer !important;
+}    
+ 
+/* Cards colors */
+.bleu {
+   background-color: var(--bleu) !important;
+}
+.ocre {
+   background-color: var(--ocre) !important;
+}
+.cian {
+   background-color: var(--cian) !important;
+}
+.bleu-marine {
+   background-color: var(--bleu-marine) !important;
+}
+.vert-fonce {
+   background-color: var(--vert-fonce) !important;
+}
+.vert {
+   background-color: var(--vert) !important;
+}
+.vert-clair {
+   background-color: var(--teal) !important;
+}
+.caca {
+   background-color: var(--caca) !important;
+}
+.beige {
+   background-color: var(--beige) !important;
+}
+.orange-naruto {
+   background-color: var(--orange-naruto) !important;
+}
+.orange-fade {
+   background-color: var(--orange-fade) !important;
+}
+.jaune {
+   background-color: var(--jaune) !important;
+}
+.violet {
+   background-color: var(--violet) !important;
+}
+.violet-light {
+   background-color: var(--violet-light) !important;
+}
+.violet-hisoka {
+   background-color: var(--violet-hisoka) !important;
+}
+.noir {
+   background-color: var(--noir) !important;
+}
+.gris {
+   background-color: var(--gris) !important;
+}
