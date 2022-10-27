@@ -86,7 +86,7 @@ class Fiche {
       }
     });
 
-    // update the local storage with the memory car array uddated
+    // update the local storage with the memory card array uddated
     localStorage.setItem("cards", JSON.stringify(this.cards));
 
     // delete card from list
@@ -373,9 +373,8 @@ document.getElementById("filter-question").addEventListener("keyup", (e) => {
   Fiche.filterApplied = true;
 });
 
-//    // Remove book from store
-//    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
-
-//    // Show success message
-//    UI.showAlert('Book Removed', 'success');
-// });
+// Copy the cards (from local storage) in the clipboard
+document.getElementById("backup").addEventListener("click", (e) => {
+  navigator.clipboard.writeText(localStorage.getItem("cards"));
+  e.target.innerHTML = "Backup (copié)";
+});

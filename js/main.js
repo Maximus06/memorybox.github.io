@@ -1,5 +1,6 @@
 import { App } from "./app.js";
 import { UI } from "./UI.js";
+import { Store } from "./store.js";
 
 main();
 
@@ -96,6 +97,12 @@ function main() {
     App.refreshCardsList();
     UI.calcCardNumberByStep();
     UI.fillSetList(themeSelected);
+  });
+
+  // Copy the cards (from local storage) in the clipboard
+  document.getElementById("backup").addEventListener("click", (e) => {
+    navigator.clipboard.writeText(localStorage.getItem("cards"));
+    e.target.innerHTML = "Backup (copié)";
   });
 
   // Event: Add a Book
