@@ -59,15 +59,13 @@ export class UI {
     divCol.className = "col-6 mt-4";
 
     let divCard = document.createElement("div");
-    // divCard.className = "card text-white border-dark bg-primary mb-3 ";
-    console.log("color :>> ", card.color);
+
     divCard.className =
       "card text-white border-dark bg-primary mb-3 " + card.color;
-    // divCard.style.backgroundColor = "green";
 
     let divCardHeader = document.createElement("div");
     divCardHeader.className = "card-header border-dark";
-    divCardHeader.textContent = card.theme;
+    divCardHeader.textContent = `${card.theme} - ${card.set}`;
 
     let icon = document.createElement("span");
     icon.className = "fas fa-eye fa-pull-right fa-border cursor-pointer ml-3";
