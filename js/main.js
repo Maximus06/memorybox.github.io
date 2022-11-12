@@ -27,6 +27,7 @@ function main() {
     // click on the thumb up (card memorized)
     if (e.target.classList.contains("fa-thumbs-up")) {
       let id = Number(e.target.dataset.id);
+      console.log("card id", id);
       App.consolidateCard(true, id);
     }
 
