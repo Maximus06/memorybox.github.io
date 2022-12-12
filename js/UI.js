@@ -2,8 +2,7 @@ import { App } from "./app.js";
 
 // UI Class: Handle UI Tasks
 export class UI {
-  static calcCardNumberByStep() {
-    console.log("App.set :", App.set);
+  static calcCardNumberByStep() {    
 
     let spanName = "";
     let span;
@@ -26,8 +25,6 @@ export class UI {
         (card) => card.theme == App.theme && card.set == App.set
       );
     }
-
-    console.log("filterCards dans calcCardNumberByStep :", filterCards);
 
     // Cacul le nombre de carte par step pour remplir le "badge" (élément span)
     for (let i = 1; i <= 7; i++) {
@@ -80,8 +77,15 @@ export class UI {
     divCardHeader.appendChild(icon);
 
     icon = document.createElement("span");
-    icon.className = "fas fa-thumbs-up fa-pull-right fa-border cursor-pointer";
+    icon.className = "fas fa-thumbs-up fa-pull-right fa-border cursor-pointer ml-3";
     icon.title = "Ok, j'ai mémorisé";
+    icon.dataset.id = card.id;
+    divCardHeader.appendChild(icon);
+
+    icon = document.createElement("span");    
+    icon.className = "fas fa-arrow-right fa-pull-right fa-border cursor-pointer  ";
+    // icon.className = "fas fa-arrows-rotate fa-pull-right fa-border cursor-pointer  ";
+    icon.title = "Retouner la carte";
     icon.dataset.id = card.id;
     divCardHeader.appendChild(icon);
 
@@ -92,7 +96,7 @@ export class UI {
     let h4 = document.createElement("h4");
     h4.className = "card-title";
     let pComplement = document.createElement("p");
-    pComplement.className = "cart-text";
+    pComplement.className = "card-text";
 
     if (card.sens == 1) {
       h4.textContent = card.question;
@@ -128,7 +132,7 @@ export class UI {
     h4 = document.createElement("h4");
     h4.className = "card-title";
     pComplement = document.createElement("p");
-    pComplement.className = "cart-text";
+    pComplement.className = "card-text";
 
     if (card.sens == 1) {
       h4.textContent = card.answer;

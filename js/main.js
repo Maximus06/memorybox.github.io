@@ -10,6 +10,9 @@ function main() {
     return;
   }
 
+  // check integrity of the card id (corruption sometimes happens)
+  Store.checkDoublon();
+
   // Event: dom loaded
   document.addEventListener("DOMContentLoaded", () => {
     App.init();
@@ -27,15 +30,38 @@ function main() {
     // click on the thumb up (card memorized)
     if (e.target.classList.contains("fa-thumbs-up")) {
       let id = Number(e.target.dataset.id);
-      console.log("card id", id);
       App.consolidateCard(true, id);
     }
 
     // click on the thumbs down (card not memorized)
     if (e.target.classList.contains("fa-thumbs-down")) {
-      console.log("pouce rouge");
       let id = Number(e.target.dataset.id);
       App.consolidateCard(false, id);
+    }
+
+    // click on the arrow right (Return card)
+    if (e.target.classList.contains("fa-arrow-right")) {
+      let id = Number(e.target.dataset.id);
+      
+      const visibleCard = e.target.parentElement.parentElement.parentElement;
+      const hiddenCard = visibleCard.nextElementSibling;
+      const titleH4 = visibleCard.querySelector('.card-title');
+      const complementElement = visibleCard.querySelector('.card-text');
+      const hideTitleH4 = hiddenCard.querySelector('.card-title');
+      const hideComplementElement = hiddenCard.querySelector('.card-text');
+
+      const titleTemp = titleH4.innerHTML;
+      const complementTemp = complementElement.innerHTML;
+
+      titleH4.innerHTML = hideTitleH4.innerHTML
+      complementElement.innerHTML = hideComplementElement.innerHTML;
+
+      hideTitleH4.innerHTML = titleTemp;
+      hideComplementElement.innerHTML = complementTemp
+
+      // update the db
+      Store.changeCardSens(id);
+      
     }
   });
 
@@ -105,47 +131,4 @@ function main() {
     navigator.clipboard.writeText(localStorage.getItem("cards"));
     e.target.innerHTML = "Backup (copié)";
   });
-
-  // Event: Add a Book
-  // document.querySelector('#book-form').addEventListener('submit', (e) => {
-  //    // Prevent actual submit
-  //    e.preventDefault();
-
-  //    // Get form values
-  //    const id = document.querySelector('#id').value;
-  //    const recto = document.querySelector('#recto').value;
-  //    const verso = document.querySelector('#verso').value;
-
-  //    // Validate
-  //    if (id === '' || recto === '' || verso === '') {
-  //       UI.showAlert('Please fill in all fields', 'danger');
-  //    } else {
-  //       // Instatiate book
-  //       const book = new Book(id, recto, verso);
-
-  //       // Add Book to UI
-  //       UI.addBookToList(book);
-
-  //       // Add book to store
-  //       Store.addBook(book);
-
-  //       // Show success message
-  //       UI.showAlert('Book Added', 'success');
-
-  //       // Clear fields
-  //       UI.clearFields();
-  //    }
-  // });
-
-  // Event: Remove a Book
-  // document.querySelector('#book-list').addEventListener('click', (e) => {
-  //    // Remove book from UI
-  //    UI.deleteBook(e.target);
-
-  //    // Remove book from store
-  //    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
-
-  //    // Show success message
-  //    UI.showAlert('Book Removed', 'success');
-  // });
 }
