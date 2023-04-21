@@ -1,6 +1,8 @@
 import { App } from "./app.js";
 import { UI } from "./UI.js";
 import { Store } from "./store.js";
+import { save, load, createCard, get_save_name } from "./api.js";
+
 
 main();
 
@@ -42,26 +44,25 @@ function main() {
     // click on the arrow right (Return card)
     if (e.target.classList.contains("fa-arrow-right")) {
       let id = Number(e.target.dataset.id);
-      
+
       const visibleCard = e.target.parentElement.parentElement.parentElement;
       const hiddenCard = visibleCard.nextElementSibling;
-      const titleH4 = visibleCard.querySelector('.card-title');
-      const complementElement = visibleCard.querySelector('.card-text');
-      const hideTitleH4 = hiddenCard.querySelector('.card-title');
-      const hideComplementElement = hiddenCard.querySelector('.card-text');
+      const titleH4 = visibleCard.querySelector(".card-title");
+      const complementElement = visibleCard.querySelector(".card-text");
+      const hideTitleH4 = hiddenCard.querySelector(".card-title");
+      const hideComplementElement = hiddenCard.querySelector(".card-text");
 
       const titleTemp = titleH4.innerHTML;
       const complementTemp = complementElement.innerHTML;
 
-      titleH4.innerHTML = hideTitleH4.innerHTML
+      titleH4.innerHTML = hideTitleH4.innerHTML;
       complementElement.innerHTML = hideComplementElement.innerHTML;
 
       hideTitleH4.innerHTML = titleTemp;
-      hideComplementElement.innerHTML = complementTemp
+      hideComplementElement.innerHTML = complementTemp;
 
       // update the db
       Store.changeCardSens(id);
-      
     }
   });
 
@@ -131,4 +132,35 @@ function main() {
     navigator.clipboard.writeText(localStorage.getItem("cards"));
     e.target.innerHTML = "Backup (copié)";
   });
+
+  // Copy the cards (from local storage) to the backcup server
+  document.getElementById("backup-server").addEventListener("click", (e) => {
+    console.log("sauvegarde demandé :>> ");
+    const result = save().then((result)  => {
+      console.log("save :>> ", result);
+    });
+    // const result = createCard();
+  });
+
+  // Load data  from a backup
+  document.getElementById("load-server").addEventListener("click", (e) => {
+    console.log("chargement demandé :>> ");
+    const result = load().then((result)  => {
+      console.log("save :>> ", result);
+    });    
+  });
+
+  // load event
+  document.getElementById("load").addEventListener("click", (e) => {
+    e.preventDefault;
+    console.log("chargement demandé :>> ");
+    
+    const name = get_save_name();
+    // const result = load().then((result)  => {
+    //   console.log("save :>> ", result);
+    // });
+
+  });
+
+
 }

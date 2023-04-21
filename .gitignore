@@ -1,2 +1,4 @@
 data.json
 .vscode/
+js/sweetalert2
+test*

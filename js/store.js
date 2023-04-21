@@ -1,10 +1,8 @@
 import { data } from "./data.js";
-import { UI } from "./UI.js";
-import { App } from "./app.js";
+
 
 // Store Class: Handles Storage
 export class Store {
-
 
   /**
    * Return the cards from the local storage if there is items
@@ -87,7 +85,6 @@ export class Store {
       });
 
       this.saveCards(newCards);
-
     }
 
   }

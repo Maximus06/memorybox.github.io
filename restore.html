@@ -44,7 +44,7 @@
                     <div class="dropdown-divider"></div>
                     <a id="load" class="dropdown-item" href="restore.html">Restorer</a>
                   </div>
-               </li>               
+               </li>
             </ul>
          </div>
       </div>
@@ -86,84 +86,50 @@
       </div>
    </div>
 
-   <div id="step-container" class="container mt-4">
+   <div class="container mt-4">
 
       <h1 class="display-4 text-center">
          <!-- <i class="fas fa-book-open text-primary"></i> La <span class="text-primary">Memory</span> Box -->
-         <i class="fas fa-brain text-primary"></i> La <span class="text-primary">Memory</span> Box
+         <i class="fas fa-brain text-primary"></i><span class="text-primary"> Restoration</span>
       </h1>
 
-      <div class="row">
-         <div class="col md-6">
-            <select id="select-theme" class="custom-select">
-               <!-- <option selected="">Selectionnez votre thème de révision ici</option>
-               <option value="1">Histoire</option>
-               <option value="2">Anglais</option>
-               <option value="3">Egypte</option>
-               <option value="4">Expression</option> -->
-            </select>
-         </div>
-         <div class="col md-6">
-            <select id="select-set" class="custom-select">
-               <!-- <option selected="">Selectionnez votre série de révision ici</option>
-               <option value="1">Série 1</option>
-               <option value="2">Roi de France</option>
-               <option value="3">Egypte</option>
-               <option value="4">Expression</option> -->
-            </select>
-         </div>
-      </div>
-      <!-- </div> -->
+      <hr>
+      <h3 class="display-3.5 text-center mt-2">
+         <i class="fas fa-th-list text-primary"></i> Liste <span class="text-primary">des</span> Sauvegardes
+      </h3>
+      <hr>
 
-      <!-- the different step -->
-      <div class="row">
-         <div class="col mt-4">
-            <button id='btn-step-1' type="button" data-num="1" class="btn btn-secondary btn-lg btn-block active">Today
-               <span id="span-1" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+      <ul id="save-list" class="list-group mt-3">
+         <li class="list-group-item d-flex justify-content-center   align-items-center">
+            2023-04-21.json
+           <a class="nav-link js-load" href="#">
+              <i class="fas fa-download fa-lg js-backup" data-name="2023-04-21.json"></i>
+           </a>
+            <span class="badge bg-primary rounded-pill">860</span>
+         </li>
+         <li class="list-group-item d-flex justify-content-center align-items-center">
+            2023-04-14.json
+            <a class="nav-link js-load" href="#">
+               <i class="fas fa-download fa-lg js-backup"></i>
+            </a>
+             <span class="badge bg-primary rounded-pill">650</span> 
+         </li>
 
-         <div class="col mt-4">
-            <button id='btn-step-2' type="button" data-num="2" class="btn btn-secondary btn-lg btn-block">1 Day/2
-               <span id="span-2" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
-
-         <div class="col mt-4">
-            <button id='btn-step-3' type="button" data-num="3" class="btn btn-secondary btn-lg btn-block">Sem.
-               <span id="span-3" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
-
-         <div class="col mt-4">
-            <button id='btn-step-4' type="button" data-num="4" class="btn btn-secondary btn-lg btn-block">Mois
-               <span id="span-4" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
-
-         <div class="col mt-4">
-            <button id='btn-step-5' type="button" data-num="5" class="btn btn-secondary btn-lg btn-block">3 mois
-               <span id="span-5" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
-
-         <div class="col mt-4">
-            <button id='btn-step-6' type="button" data-num="6" class="btn btn-secondary btn-lg btn-block">6 mois
-               <span id="span-6" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
-
-         <div class="col mt-4">
-            <button id='btn-step-7' type="button" data-num="7" class="btn btn-secondary btn-lg btn-block">An
-               <span id="span-7" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
-      </div>
+         <li class="list-group-item d-flex justify-content-center align-items-center">
+            test.json
+            <a class="nav-link js-load" href="#">
+              <i class="fas fa-download fa-lg js-backup" data-name="test.json"></i>
+           </a>
+           <span class="badge bg-primary rounded-pill">2</span>
+         </li>
+       </ul>
    </div>
 
-   <div id="card-container" class="container">
-
-   </div> <!-- end card-container -->
+   <div id="save-container" class="container">
+      <div hx-get="http://omk.freeboxos.fr:2814/backup-html">
+         Put To Messages
+     </div>  
+   </div> <!-- end save-container -->
 
 
    <!-- <script src="data.js"></script> -->
@@ -182,8 +148,10 @@
    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
    <!-- <script src="sweetalert2.all.min.js"></script> -->
+
+   <script src="https://unpkg.com/htmx.org@1.9.0" integrity="sha384-aOxz9UdWG0yBiyrTwPeMibmaoq07/d3a96GCbb9x60f3mOt5zwkjdbcHFnKH8qls" crossorigin="anonymous"></script>
    
-   <script type="module" src="./js/main.js"></script>
+   <script type="module" src="./js/restore.js"></script>
 </body>
 
 </html>
