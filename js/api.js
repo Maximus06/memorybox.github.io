@@ -51,8 +51,7 @@ export async function save() {
   // stringify the data
   let jsonData = JSON.stringify(data);
 
-  const response = await fetch("http://omk.freeboxos.fr:2814/backups", {
-    // const response = await fetch("http://192.168.0.30:2814/cards", {
+  const response = await fetch(`${API_URL}backups`, {
     method: "POST",
     body: jsonData,
     headers: {
