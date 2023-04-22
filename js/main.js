@@ -1,7 +1,7 @@
 import { App } from "./app.js";
 import { UI } from "./UI.js";
 import { Store } from "./store.js";
-import { save, load, createCard, get_save_name } from "./api.js";
+// import { save, load, createCard, get_save_name } from "./api.js";
 
 
 main();
@@ -134,32 +134,33 @@ function main() {
   });
 
   // Send the cards (from local storage) to the backcup server
-  document.getElementById("backup-server").addEventListener("click", (e) => {
-    console.log("sauvegarde demandé :>> ");
-    const result = save().then((result)  => {
-      console.log("save :>> ", result);
-    });    
-  });
+  // document.getElementById("backup-server").addEventListener("click", (e) => {
+  //   console.log("sauvegarde demandé :>> ");
+  //   const result = save().then((result)  => {
+  //     console.log("save :>> ", result);
+  //   });    
+  // });
 
   // Load data  from a backup
-  document.getElementById("load-server").addEventListener("click", (e) => {
-    console.log("chargement demandé :>> ");
-    const result = load().then((result)  => {
-      console.log("save :>> ", result);
-    });    
-  });
+  // document.getElementById("load-server").addEventListener("click", (e) => {
+  //   console.log("chargement demandé :>> ");
+  //   const result = load().then((result)  => {
+  //     console.log("save :>> ", result);
+  //   });    
+  // });
 
   // load event
-  document.getElementById("load").addEventListener("click", (e) => {
-    e.preventDefault;
-    console.log("chargement demandé :>> ");
+  // document.getElementById("load").addEventListener("click", (e) => {
+  //   e.preventDefault;
+  //   console.log("chargement demandé :>> ");
     
-    const name = get_save_name();
+  //   const name = get_save_name();
+
     // const result = load().then((result)  => {
     //   console.log("save :>> ", result);
     // });
 
-  });
+  // });
 
 
 }

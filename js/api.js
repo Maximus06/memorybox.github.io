@@ -34,22 +34,31 @@ export const AJAX = async function (url, uploadData = undefined) {
   }
 };
 
-export async function save() {
+export async function save(name="") {
   let data;
+  let payload;
 
   try {
-    // get the data from local storage
+    // get the data from local storage   
     data = JSON.parse(localStorage.getItem("cards"));
-  } catch {
+ 
+    payload = {
+      cards: data,
+      name: name
+    };
+
+  } catch (err) {
+    console.log('err :>> ', err);
     Swal.fire({
-      title: 'Aucune donnée à sauvegarder',
+      title: 'Oups un problème est survenu',
+      err,
       icon: 'info'
     });
     return;
   }
 
   // stringify the data
-  let jsonData = JSON.stringify(data);
+  let jsonData = JSON.stringify(payload);
 
   const response = await fetch(`${API_URL}backups`, {
     method: "POST",
