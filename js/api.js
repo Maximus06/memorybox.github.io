@@ -17,7 +17,7 @@ export const AJAX = async function (url, uploadData = undefined) {
           headers: {
             "Content-Type": "application/json",
           },
-          mode: "no-cors",
+          // mode: "no-cors",
           body: JSON.stringify(uploadData),
         })
       : fetch(url);
@@ -35,16 +35,23 @@ export const AJAX = async function (url, uploadData = undefined) {
 };
 
 export async function save() {
-  // get the data from local storage
-  const data = JSON.parse(localStorage.getItem("cards"));
-  if (data === null) {
+  let data;
+
+  try {
+    // get the data from local storage
+    data = JSON.parse(localStorage.getItem("cards"));
+  } catch {
+    Swal.fire({
+      title: 'Aucune donnée à sauvegarder',
+      icon: 'info'
+    });
     return;
   }
 
   // stringify the data
   let jsonData = JSON.stringify(data);
 
-  const response = await fetch("http://omk.freeboxos.fr:2814/backups/", {
+  const response = await fetch("http://omk.freeboxos.fr:2814/backups", {
     // const response = await fetch("http://192.168.0.30:2814/cards", {
     method: "POST",
     body: jsonData,
@@ -53,20 +60,19 @@ export async function save() {
       "Content-Type": "application/json",
       // charset: "utf-8",
     },
-    mode: "no-cors",
-    redirect: "follow",
+    // mode: "no-cors",
+    // redirect: "follow",
   });
   console.log("response :>> ", response);
 
-  let message = await response.text();
+  let message = await response.json();
   console.log("response.ok :>> ", response.ok);
   console.log("response.status :>> ", response.status);
   console.log("response.json :>> ", message);
 
-  if (response.ok) {
-    message = await response.json();
+  if (!response.ok) {
+    message = "une erreur est survenue lors de la sauvegarde des data";
   } else {
-    message = "une erreur est survenue lors de la sauvegarde des data ";
   }
   return message;
 }

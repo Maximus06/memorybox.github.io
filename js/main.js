@@ -133,13 +133,12 @@ function main() {
     e.target.innerHTML = "Backup (copié)";
   });
 
-  // Copy the cards (from local storage) to the backcup server
+  // Send the cards (from local storage) to the backcup server
   document.getElementById("backup-server").addEventListener("click", (e) => {
     console.log("sauvegarde demandé :>> ");
     const result = save().then((result)  => {
       console.log("save :>> ", result);
-    });
-    // const result = createCard();
+    });    
   });
 
   // Load data  from a backup
