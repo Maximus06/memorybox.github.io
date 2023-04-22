@@ -1,4 +1,4 @@
-export const API_URL = "http://omk.freeboxos.fr:2814/";
+export const API_URL = "https://omk.freeboxos.fr:2814/";
 const TIMEOUT_SEC = 10;
 
 const timeout = function (s) {
