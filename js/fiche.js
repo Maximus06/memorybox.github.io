@@ -68,6 +68,7 @@ class Fiche {
     document.querySelector("#step").value = 1;
     // document.querySelector('#set').value = "";
     document.querySelector("#chkActive").checked = true;
+    document.querySelector("#chkItalic").checked = false;
     document.querySelector("#sens").value = 1;
   }
 
@@ -120,6 +121,7 @@ class Fiche {
     document.querySelector("#answerComplement").value = card.complementAnswer;
     document.querySelector("#step").value = card.step;
     document.querySelector("#chkActive").checked = card.active;
+    document.querySelector("#chkItalic").checked = card.italic;
     document.querySelector("#sens").value = card.sens;
     document.querySelector("#set").value = card.set;
     document.querySelector("#select-color").value = card.color;
@@ -157,6 +159,7 @@ class Fiche {
     const answerComplement = document.getElementById("answerComplement").value;
     const step = document.getElementById("step").value;
     const active = document.getElementById("chkActive").checked;
+    const italic = document.getElementById("chkItalic").checked;
     const sens = document.getElementById("sens").value;
     const set = document.getElementById("set").value;
     const color = document.getElementById("select-color").value;
@@ -172,7 +175,8 @@ class Fiche {
       step,
       set,
       color,
-      active
+      active,
+      italic
     );
   }
 

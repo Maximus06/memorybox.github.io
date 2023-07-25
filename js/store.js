@@ -1,9 +1,7 @@
 import { data } from "./data.js";
 
-
 // Store Class: Handles Storage
 export class Store {
-
   /**
    * Return the cards from the local storage if there is items
    * Otherwise, return a exemple of cards
@@ -21,16 +19,16 @@ export class Store {
     return cards;
   }
 
-/**
- * It takes an array of cards and saves it to local storage.
- * @param cards - The array of cards to save to localStorage.
- */
+  /**
+   * It takes an array of cards and saves it to local storage.
+   * @param cards - The array of cards to save to localStorage.
+   */
   static saveCards(cards) {
     localStorage.setItem("cards", JSON.stringify(cards));
   }
 
   static changeCardSens(id) {
-    const cards = this.getCards()
+    const cards = this.getCards();
     let cardFound = false;
 
     cards.forEach((card) => {
@@ -51,61 +49,38 @@ export class Store {
     this.saveCards(cards);
   }
 
-    static checkDoublon() {
-      const cards = this.getCards()
-      
+  static checkDoublon() {
+    const cards = this.getCards();
 
-      let ids = [];
-      cards.forEach((card) => {
-        ids.push(card.id)
-      });
+    let ids = [];
+    cards.forEach((card) => {
+      ids.push(card.id);
+    });
 
-      const lenCards = ids.length
-      console.log('nombre de cartes :', ids.length)
+    const lenCards = ids.length;
+    console.log("nombre de cartes :", ids.length);
 
-      // create a set to get unique id.
-      const setIds = new Set(ids)
-      console.log('nombre de carte unique :', setIds.size)
-      console.log('nombre de doublon détecté(s) :', lenCards - setIds.size)
+    // create a set to get unique id.
+    const setIds = new Set(ids);
+    console.log("nombre de carte unique :", setIds.size);
+    console.log("nombre de doublon détecté(s) :", lenCards - setIds.size);
 
-      if (lenCards - setIds.size >= 1) {
-        // there is doublon
-        this.resetId(cards);
-      }
+    if (lenCards - setIds.size >= 1) {
+      // there is doublon
+      this.resetId(cards);
     }
-
-    static resetId(cards) {
-      const newCards = [];
-      let id = 1;
-
-      cards.forEach((card) => {
-        card.id = id;
-        newCards.push(card);
-        id ++;
-      });
-
-      this.saveCards(newCards);
-    }
-
   }
 
-  // ==========================================================================
-// Book exemple
-  // static addBook(book) {
-  //   const books = Store.getBooks();
-  //   books.push(book);
-  //   localStorage.setItem("books", JSON.stringify(books));
-  // }
+  static resetId(cards) {
+    const newCards = [];
+    let id = 1;
 
-  // static removeBook(verso) {
-  //   const books = Store.getBooks();
+    cards.forEach((card) => {
+      card.id = id;
+      newCards.push(card);
+      id++;
+    });
 
-  //   books.forEach((book, index) => {
-  //     if (book.verso === verso) {
-  //       books.splice(index, 1);
-  //     }
-  //   });
-
-  //   localStorage.setItem("books", JSON.stringify(books));
-  // }
-
+    this.saveCards(newCards);
+  }
+}

@@ -2,8 +2,7 @@ import { App } from "./app.js";
 
 // UI Class: Handle UI Tasks
 export class UI {
-  static calcCardNumberByStep() {    
-
+  static calcCardNumberByStep() {
     let spanName = "";
     let span;
     let cardByStep = [];
@@ -77,13 +76,15 @@ export class UI {
     divCardHeader.appendChild(icon);
 
     icon = document.createElement("span");
-    icon.className = "fas fa-thumbs-up fa-pull-right fa-border cursor-pointer ml-3";
+    icon.className =
+      "fas fa-thumbs-up fa-pull-right fa-border cursor-pointer ml-3";
     icon.title = "Ok, j'ai mémorisé";
     icon.dataset.id = card.id;
     divCardHeader.appendChild(icon);
 
-    icon = document.createElement("span");    
-    icon.className = "fas fa-arrow-right fa-pull-right fa-border cursor-pointer  ";
+    icon = document.createElement("span");
+    icon.className =
+      "fas fa-arrow-right fa-pull-right fa-border cursor-pointer  ";
     // icon.className = "fas fa-arrows-rotate fa-pull-right fa-border cursor-pointer  ";
     icon.title = "Retouner la carte";
     icon.dataset.id = card.id;
@@ -92,7 +93,11 @@ export class UI {
     divCard.appendChild(divCardHeader);
 
     let divCardBody = document.createElement("div");
-    divCardBody.className = "card-body";
+    if (card.italic) {
+      divCardBody.className = "card-body font-italic";
+    } else {
+      divCardBody.className = "card-body";
+    }
     let h4 = document.createElement("h4");
     h4.className = "card-title";
     let pComplement = document.createElement("p");
@@ -128,7 +133,12 @@ export class UI {
     divCard.appendChild(divCardHeader);
 
     divCardBody = document.createElement("div");
-    divCardBody.className = "card-body";
+    if (card.italic) {
+      divCardBody.className = "card-body font-italic";
+    } else {
+      divCardBody.className = "card-body";
+    }
+
     h4 = document.createElement("h4");
     h4.className = "card-title";
     pComplement = document.createElement("p");

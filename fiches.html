@@ -47,7 +47,7 @@
          <div class="modal-content">
             <div class="modal-header">
                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  MemoryBox version 0.3.3 - Auteur : Olivier Majchrzak
+                  MemoryBox version 0.3.4 - Auteur : Olivier Majchrzak
                </h5>
                <!-- <h6 class="modal-title" id="exampleModalCenterTitle">Auteur : Olivier Majchrzak</h6> -->
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -55,6 +55,7 @@
                </button>
             </div>
             <div class="modal-body">
+               <p>Version 0.3.4 (2023-07-26): Card : Ajout du rang B (italic).</p>
                <p>Version 0.3.3 (2022-12-12): Card : Ajout d'un bouton retourner la carte.</p>
                <p>Version 0.3.3 (2022-12-12): Data : Ajout d'une vérification et correction auto des ids.</p>
                <p>Version 0.3.2 (2022-11-04): Card : Ajout de la série dans le titre.</p>
@@ -137,7 +138,6 @@
 
             <div class="col col-2 ">
                <!-- active or not -->
-               <!-- <div class="col-auto"> -->
                <div class="form-group custom-control custom-checkbox mt-5">
                   <input type="checkbox" class="custom-control-input" id="chkActive" checked="">
                   <label class="custom-control-label" for="chkActive">Fiche active</label>
@@ -169,6 +169,14 @@
                   <option value="gris">Gris</option>
                </select>
             </div>
+            <!-- Italic police -->
+            <div class="col col-2 ">               
+               <div class="form-group custom-control custom-checkbox mt-2">
+                  <input type="checkbox" class="custom-control-input" id="chkItalic" value="RangB">
+                  <label class="custom-control-label" for="chkItalic">Rang B</label>
+               </div>
+            </div>
+
          </div>
 
          <br>

@@ -11,7 +11,8 @@ export class Card {
     step,
     set,
     color,
-    active = true
+    active = true,
+    italic = false
   ) {
     this.id = id;
     this.question = question;
@@ -23,6 +24,7 @@ export class Card {
     this.step = step;
     this.set = set;
     this.active = active;
+    this.italic = italic;
     this.color = color;
   }
 }
