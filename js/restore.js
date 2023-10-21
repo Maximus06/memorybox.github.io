@@ -1,6 +1,7 @@
-import { AJAX, API_URL } from "./api.js";
+import { AJAX, API_URL, get_server } from "./api.js";
 import { Store } from "./store.js";
 
+console.log("api_url = ", API_URL)
 // TODO
 // Voir le badge nombre de carte ?
 // Ajout message si server out

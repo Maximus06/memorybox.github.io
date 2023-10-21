@@ -1,5 +1,24 @@
-export const API_URL = "https://omk.freeboxos.fr:2814/";
-const TIMEOUT_SEC = 10;
+// export let API_URL = "https://omk.freeboxos.fr:2814/";
+export let API_URL;
+export let SERVER;
+const TIMEOUT_SEC = 3;
+
+const domain = "https://omk.freeboxos.fr"
+// const domain = "http://127.0.0.1"
+
+
+// the differents server available inside omk.freeboxos.fr domain (each server is map to a port)
+const server_urls = [`${domain}:2814/`, `${domain}:2815/`, `${domain}:2816/` ];
+
+if (API_URL === undefined){
+  SERVER = await get_server();
+  API_URL = SERVER.url;
+}
+
+const serverSpan = document.querySelector('#server')
+if (SERVER != undefined) {  
+  serverSpan.textContent = "Serveur " + SERVER.name + " up 🚀";
+}
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -23,13 +42,16 @@ export const AJAX = async function (url, uploadData = undefined) {
       : fetch(url);
 
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
-    console.log("response :>> ", res);
+    console.log("response dans AJAX :>> ", res);
     const data = await res.json();
 
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    // if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    if (!res.ok) throw new Error(`${data.message}`);
 
     return data;
   } catch (err) {
+    // Un time out du serveur (déclenché ici par la fonction timeout) va déclencher une exception
+    console.log("DEBUG: erreur dans le catch = ", err)
     throw err;
   }
 };
@@ -139,4 +161,28 @@ export async function get_save_name() {
 export async function load() {
   backupName = await get_save_name();
   console.log("backupName :>> ", backupName);
+}
+
+/**
+ * Return the first url server available
+ */
+export async function get_server() {
+    // const response = await AJAX(server_urls[0] + "server")
+    // console.log("server name", response)
+
+    let urlsToFetch = [];
+    server_urls.forEach(url => {
+      urlsToFetch.push(fetch(url + "server"))     
+    });
+    // add a promise for managing the timeout
+    // urlsToFetch.push(timeout(TIMEOUT_SEC))
+
+    const res = await Promise.any(urlsToFetch);
+    const server = await res.json();
+
+    // API_URL = server.url
+    return server
+
+    // TODO: gérer les erreurs,    
+    // Documenter les certificats ssl.
 }
