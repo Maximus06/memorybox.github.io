@@ -38,13 +38,14 @@
                   <a class="nav-link" data-toggle="modal" href="#modalAbout">A propos</a>
                </li>
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Backup</a>
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                     aria-expanded="false">Backup</a>
                   <div class="dropdown-menu">
-                    <a id="save" class="dropdown-item" href="save.html">Sauvegarder</a>
-                    <div class="dropdown-divider"></div>
-                    <a id="load" class="dropdown-item" href="restore.html">Restorer</a>
+                     <a id="save" class="dropdown-item" href="save.html">Sauvegarder</a>
+                     <div class="dropdown-divider"></div>
+                     <a id="load" class="dropdown-item" href="restore.html">Restorer</a>
                   </div>
-               </li>               
+               </li>
             </ul>
          </div>
       </div>
@@ -66,6 +67,7 @@
                </button>
             </div>
             <div class="modal-body">
+               <p>Version 0.3.6 (2024-04-04): Sauvegarde/Restauration : Ajout server portable on rj45</p>
                <p>Version 0.3.5 (2023-10-21): Sauvegarde : Ajout multi-server + info server.</p>
                <p>Version 0.3.4 (2023-07-26): Card : Ajout du rang B (italic).</p>
                <p>Version 0.3.3 (2022-12-12): Card : Ajout d'un bouton retourner la carte.</p>
@@ -81,7 +83,10 @@
             <div class="modal-footer">
                <!-- <button id="backup-server" type="button" class="btn btn-success" >Save</button>
                <button id="load-server" type="button" class="btn btn-primary" >Load</button> -->
-               <button id="backup" type="button" class="btn btn-info" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Toutes les cartes ont été recopiées dans le press papier. Y'a plus qu'à CTRL V" data-bs-original-title="Clipboard" >Clipboard</button>
+               <button id="backup" type="button" class="btn btn-info" data-bs-container="body" data-bs-toggle="popover"
+                  data-bs-placement="top"
+                  data-bs-content="Toutes les cartes ont été recopiées dans le press papier. Y'a plus qu'à CTRL V"
+                  data-bs-original-title="Clipboard">Clipboard</button>
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
          </div>
@@ -170,31 +175,31 @@
    <!-- Modal for update the card -->
    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div>
-        </div>
+         <div class="modal-content">
+            <div class="modal-header">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="mb-3">
+                     <label for="recipient-name" class="col-form-label">Recipient:</label>
+                     <input type="text" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="mb-3">
+                     <label for="message-text" class="col-form-label">Message:</label>
+                     <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+         </div>
       </div>
-    </div>   
-    <!-- end modal -->
+   </div>
+   <!-- end modal -->
 
    <!-- <script src="data.js"></script> -->
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -212,7 +217,7 @@
    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
    <!-- <script src="sweetalert2.all.min.js"></script> -->
-   
+
    <script type="module" src="./js/main.js"></script>
 </body>
 
