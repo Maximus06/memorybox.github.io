@@ -8,15 +8,15 @@ const domain = "https://omk.freeboxos.fr"
 
 
 // the differents server available inside omk.freeboxos.fr domain (each server is map to a port)
-const server_urls = [`${domain}:2814/`, `${domain}:2815/`, `${domain}:2816/` ];
+const server_urls = [`${domain}:2814/`, `${domain}:2815/`, `${domain}:2816/`, `${domain}:2817/`];
 
-if (API_URL === undefined){
+if (API_URL === undefined) {
   SERVER = await get_server();
   API_URL = SERVER.url;
 }
 
 const serverSpan = document.querySelector('#server')
-if (SERVER != undefined) {  
+if (SERVER != undefined) {
   serverSpan.textContent = "Serveur " + SERVER.name + " up 🚀";
 }
 
@@ -32,13 +32,13 @@ export const AJAX = async function (url, uploadData = undefined) {
   try {
     const fetchPro = uploadData
       ? fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          // mode: "no-cors",
-          body: JSON.stringify(uploadData),
-        })
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // mode: "no-cors",
+        body: JSON.stringify(uploadData),
+      })
       : fetch(url);
 
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
@@ -56,14 +56,14 @@ export const AJAX = async function (url, uploadData = undefined) {
   }
 };
 
-export async function save(name="") {
+export async function save(name = "") {
   let data;
   let payload;
 
   try {
     // get the data from local storage   
     data = JSON.parse(localStorage.getItem("cards"));
- 
+
     payload = {
       cards: data,
       name: name
@@ -167,22 +167,22 @@ export async function load() {
  * Return the first url server available
  */
 export async function get_server() {
-    // const response = await AJAX(server_urls[0] + "server")
-    // console.log("server name", response)
+  // const response = await AJAX(server_urls[0] + "server")
+  // console.log("server name", response)
 
-    let urlsToFetch = [];
-    server_urls.forEach(url => {
-      urlsToFetch.push(fetch(url + "server"))     
-    });
-    // add a promise for managing the timeout
-    // urlsToFetch.push(timeout(TIMEOUT_SEC))
+  let urlsToFetch = [];
+  server_urls.forEach(url => {
+    urlsToFetch.push(fetch(url + "server"))
+  });
+  // add a promise for managing the timeout
+  // urlsToFetch.push(timeout(TIMEOUT_SEC))
 
-    const res = await Promise.any(urlsToFetch);
-    const server = await res.json();
+  const res = await Promise.any(urlsToFetch);
+  const server = await res.json();
 
-    // API_URL = server.url
-    return server
+  // API_URL = server.url
+  return server
 
-    // TODO: gérer les erreurs,    
-    // Documenter les certificats ssl.
+  // TODO: gérer les erreurs,    
+  // Documenter les certificats ssl.
 }
