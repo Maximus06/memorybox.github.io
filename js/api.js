@@ -3,20 +3,24 @@ export let API_URL;
 export let SERVER;
 const TIMEOUT_SEC = 3;
 
-const domain = "https://omk.freeboxos.fr"
+const domain = "https://omk.freeboxos.fr";
 // const domain = "http://127.0.0.1"
 
-
 // the differents server available inside omk.freeboxos.fr domain (each server is map to a port)
-const server_urls = [`${domain}:2814/`, `${domain}:2815/`, `${domain}:2816/`, `${domain}:2817/`];
+const server_urls = [
+  `${domain}:2814/`,
+  `${domain}:2815/`,
+  `${domain}:2816/`,
+  `${domain}:2817/`,
+];
 
 if (API_URL === undefined) {
   SERVER = await get_server();
   API_URL = SERVER.url;
 }
 
-const serverSpan = document.querySelector('#server')
-if (SERVER != undefined) {
+const serverSpan = document.querySelector("#server");
+if ((serverSpan != null) & (SERVER != undefined)) {
   serverSpan.textContent = "Serveur " + SERVER.name + " up 🚀";
 }
 
@@ -32,13 +36,13 @@ export const AJAX = async function (url, uploadData = undefined) {
   try {
     const fetchPro = uploadData
       ? fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // mode: "no-cors",
-        body: JSON.stringify(uploadData),
-      })
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // mode: "no-cors",
+          body: JSON.stringify(uploadData),
+        })
       : fetch(url);
 
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
@@ -51,7 +55,7 @@ export const AJAX = async function (url, uploadData = undefined) {
     return data;
   } catch (err) {
     // Un time out du serveur (déclenché ici par la fonction timeout) va déclencher une exception
-    console.log("DEBUG: erreur dans le catch = ", err)
+    console.log("DEBUG: erreur dans le catch = ", err);
     throw err;
   }
 };
@@ -61,20 +65,19 @@ export async function save(name = "") {
   let payload;
 
   try {
-    // get the data from local storage   
+    // get the data from local storage
     data = JSON.parse(localStorage.getItem("cards"));
 
     payload = {
       cards: data,
-      name: name
+      name: name,
     };
-
   } catch (err) {
-    console.log('err :>> ', err);
+    console.log("err :>> ", err);
     Swal.fire({
-      title: 'Oups un problème est survenu',
+      title: "Oups un problème est survenu",
       err,
-      icon: 'info'
+      icon: "info",
     });
     return;
   }
@@ -171,8 +174,8 @@ export async function get_server() {
   // console.log("server name", response)
 
   let urlsToFetch = [];
-  server_urls.forEach(url => {
-    urlsToFetch.push(fetch(url + "server"))
+  server_urls.forEach((url) => {
+    urlsToFetch.push(fetch(url + "server"));
   });
   // add a promise for managing the timeout
   // urlsToFetch.push(timeout(TIMEOUT_SEC))
@@ -181,8 +184,8 @@ export async function get_server() {
   const server = await res.json();
 
   // API_URL = server.url
-  return server
+  return server;
 
-  // TODO: gérer les erreurs,    
+  // TODO: gérer les erreurs,
   // Documenter les certificats ssl.
 }

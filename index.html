@@ -1,224 +1,379 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.js" integrity="sha512-S1KaVll2UTj29SOXML7O4LxU7zEoQhJgnondHE/ZvNrk7H4Rc9TLFKDaWuEzsHmAEkJnWFedc0hcVrpvFTOlwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/bootswatchJournal.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Memory Box</title>
+  </head>
 
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.js" integrity="sha512-S1KaVll2UTj29SOXML7O4LxU7zEoQhJgnondHE/ZvNrk7H4Rc9TLFKDaWuEzsHmAEkJnWFedc0hcVrpvFTOlwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <!-- <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css"> -->
-   <link rel="stylesheet" href="css/bootswatchJournal.min.css">
-   <link rel="stylesheet" href="css/style.css">
-   <title>Memory Box</title>
-</head>
-
-<body style="background-color: whitesmoke;">
-
-   <!--  Navbar-->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <body style="background-color: whitesmoke">
+    <!--  Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-         <a class="navbar-brand" href="#">MemoryBox</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
+        <a class="navbar-brand" href="#">MemoryBox</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarColor01"
+          aria-controls="navbarColor01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Mémoriser <span class="sr-only">(current)</span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="fiches.html">Gestion des fiches</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" data-toggle="modal" href="#modalAbout">A propos</a>
-               </li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                     aria-expanded="false">Backup</a>
-                  <div class="dropdown-menu">
-                     <a id="save" class="dropdown-item" href="save.html">Sauvegarder</a>
-                     <div class="dropdown-divider"></div>
-                     <a id="load" class="dropdown-item" href="restore.html">Restorer</a>
-                  </div>
-               </li>
-            </ul>
-         </div>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html"
+                >Mémoriser <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="fiches.html">Gestion des fiches</a>
+            </li>
+            <li class="nav-item">
+              <a id="js-images-link" class="nav-link" href="#" target="_blank"
+                >Images</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" href="#modalAbout"
+                >A propos</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Backup</a
+              >
+              <div class="dropdown-menu">
+                <a id="save" class="dropdown-item" href="save.html"
+                  >Sauvegarder</a
+                >
+                <div class="dropdown-divider"></div>
+                <a id="load" class="dropdown-item" href="restore.html"
+                  >Restorer</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-   </nav>
+    </nav>
 
-   <!-- Modal about -->
-   <!-- https://getbootstrap.com/docs/4.3/components/modal/ -->
-   <div class="modal fade" id="modalAbout" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
+    <!-- Modal about -->
+    <!-- https://getbootstrap.com/docs/4.3/components/modal/ -->
+    <div
+      class="modal fade"
+      id="modalAbout"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalCenterTitle">
-                  MemoryBox version 0.3.4 - Auteur : Olivier Majchrzak
-               </h5>
-               <!-- <h6 class="modal-title" id="exampleModalCenterTitle">Auteur : Olivier Majchrzak</h6> -->
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-               <p>Version 0.3.6 (2024-04-04): Sauvegarde/Restauration : Ajout server portable on rj45</p>
-               <p>Version 0.3.5 (2023-10-21): Sauvegarde : Ajout multi-server + info server.</p>
-               <p>Version 0.3.4 (2023-07-26): Card : Ajout du rang B (italic).</p>
-               <p>Version 0.3.3 (2022-12-12): Card : Ajout d'un bouton retourner la carte.</p>
-               <p>Version 0.3.3 (2022-12-12): Data : Ajout d'une vérification et correction auto des ids.</p>
-               <p>Version 0.3.2 (2022-11-04): Card : Ajout de la série dans le titre.</p>
-               <p>Version 0.3.1 (2022-10-27): Sauvegarde : Ajout d'un backup des cartes dans le clipboard.</p>
-               <p>Version 0.3.0 (2022-10-20) : Gestion des fiches : Possibilité de donner une couleur aux cartes.</p>
-               <p>Version 0.2.2 : Gestion des fiches : Ajout de la selection par série.</p>
-               <p>Version 0.2.1 : Mémoriser : Ajout d'un filtre sur la liste des séries en fonction du thème choisi.</p>
-               <p>Version 0.2 : Gestion des fiches : Ajout de la selection par thème.</p>
-               <p>Version 0.1 : initial release.</p>
-            </div>
-            <div class="modal-footer">
-               <!-- <button id="backup-server" type="button" class="btn btn-success" >Save</button>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              MemoryBox version 0.3.7 - Auteur : Olivier Majchrzak
+            </h5>
+            <!-- <h6 class="modal-title" id="exampleModalCenterTitle">Auteur : Olivier Majchrzak</h6> -->
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Version 0.3.7 (2025-02-01):Ajout d'un lien sur la reconnaissance
+              d'images
+            </p>
+            <p>
+              Version 0.3.6 (2024-04-04): Sauvegarde/Restauration : Ajout server
+              portable on rj45
+            </p>
+            <p>
+              Version 0.3.5 (2023-10-21): Sauvegarde : Ajout multi-server + info
+              server.
+            </p>
+            <p>Version 0.3.4 (2023-07-26): Card : Ajout du rang B (italic).</p>
+            <p>
+              Version 0.3.3 (2022-12-12): Card : Ajout d'un bouton retourner la
+              carte.
+            </p>
+            <p>
+              Version 0.3.3 (2022-12-12): Data : Ajout d'une vérification et
+              correction auto des ids.
+            </p>
+            <p>
+              Version 0.3.2 (2022-11-04): Card : Ajout de la série dans le
+              titre.
+            </p>
+            <p>
+              Version 0.3.1 (2022-10-27): Sauvegarde : Ajout d'un backup des
+              cartes dans le clipboard.
+            </p>
+            <p>
+              Version 0.3.0 (2022-10-20) : Gestion des fiches : Possibilité de
+              donner une couleur aux cartes.
+            </p>
+            <p>
+              Version 0.2.2 : Gestion des fiches : Ajout de la selection par
+              série.
+            </p>
+            <p>
+              Version 0.2.1 : Mémoriser : Ajout d'un filtre sur la liste des
+              séries en fonction du thème choisi.
+            </p>
+            <p>
+              Version 0.2 : Gestion des fiches : Ajout de la selection par
+              thème.
+            </p>
+            <p>Version 0.1 : initial release.</p>
+          </div>
+          <div class="modal-footer">
+            <!-- <button id="backup-server" type="button" class="btn btn-success" >Save</button>
                <button id="load-server" type="button" class="btn btn-primary" >Load</button> -->
-               <button id="backup" type="button" class="btn btn-info" data-bs-container="body" data-bs-toggle="popover"
-                  data-bs-placement="top"
-                  data-bs-content="Toutes les cartes ont été recopiées dans le press papier. Y'a plus qu'à CTRL V"
-                  data-bs-original-title="Clipboard">Clipboard</button>
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-         </div>
+            <button
+              id="backup"
+              type="button"
+              class="btn btn-info"
+              data-bs-container="body"
+              data-bs-toggle="popover"
+              data-bs-placement="top"
+              data-bs-content="Toutes les cartes ont été recopiées dans le press papier. Y'a plus qu'à CTRL V"
+              data-bs-original-title="Clipboard"
+            >
+              Clipboard
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
       </div>
-   </div>
+    </div>
 
-   <div id="step-container" class="container mt-4">
-
+    <div id="step-container" class="container mt-4">
       <h1 class="display-4 text-center">
-         <!-- <i class="fas fa-book-open text-primary"></i> La <span class="text-primary">Memory</span> Box -->
-         <i class="fas fa-brain text-primary"></i> La <span class="text-primary">Memory</span> Box
+        <!-- <i class="fas fa-book-open text-primary"></i> La <span class="text-primary">Memory</span> Box -->
+        <i class="fas fa-brain text-primary"></i> La
+        <span class="text-primary">Memory</span> Box
       </h1>
 
       <div class="row">
-         <div class="col md-6">
-            <select id="select-theme" class="custom-select">
-               <!-- <option selected="">Selectionnez votre thème de révision ici</option>
+        <div class="col md-6">
+          <select id="select-theme" class="custom-select">
+            <!-- <option selected="">Selectionnez votre thème de révision ici</option>
                <option value="1">Histoire</option>
                <option value="2">Anglais</option>
                <option value="3">Egypte</option>
                <option value="4">Expression</option> -->
-            </select>
-         </div>
-         <div class="col md-6">
-            <select id="select-set" class="custom-select">
-               <!-- <option selected="">Selectionnez votre série de révision ici</option>
+          </select>
+        </div>
+        <div class="col md-6">
+          <select id="select-set" class="custom-select">
+            <!-- <option selected="">Selectionnez votre série de révision ici</option>
                <option value="1">Série 1</option>
                <option value="2">Roi de France</option>
                <option value="3">Egypte</option>
                <option value="4">Expression</option> -->
-            </select>
-         </div>
+          </select>
+        </div>
       </div>
       <!-- </div> -->
 
       <!-- the different step -->
       <div class="row">
-         <div class="col mt-4">
-            <button id='btn-step-1' type="button" data-num="1" class="btn btn-secondary btn-lg btn-block active">Today
-               <span id="span-1" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-1"
+            type="button"
+            data-num="1"
+            class="btn btn-secondary btn-lg btn-block active"
+          >
+            Today
+            <span id="span-1" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
 
-         <div class="col mt-4">
-            <button id='btn-step-2' type="button" data-num="2" class="btn btn-secondary btn-lg btn-block">1 Day/2
-               <span id="span-2" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-2"
+            type="button"
+            data-num="2"
+            class="btn btn-secondary btn-lg btn-block"
+          >
+            1 Day/2
+            <span id="span-2" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
 
-         <div class="col mt-4">
-            <button id='btn-step-3' type="button" data-num="3" class="btn btn-secondary btn-lg btn-block">Sem.
-               <span id="span-3" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-3"
+            type="button"
+            data-num="3"
+            class="btn btn-secondary btn-lg btn-block"
+          >
+            Sem.
+            <span id="span-3" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
 
-         <div class="col mt-4">
-            <button id='btn-step-4' type="button" data-num="4" class="btn btn-secondary btn-lg btn-block">Mois
-               <span id="span-4" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-4"
+            type="button"
+            data-num="4"
+            class="btn btn-secondary btn-lg btn-block"
+          >
+            Mois
+            <span id="span-4" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
 
-         <div class="col mt-4">
-            <button id='btn-step-5' type="button" data-num="5" class="btn btn-secondary btn-lg btn-block">3 mois
-               <span id="span-5" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-5"
+            type="button"
+            data-num="5"
+            class="btn btn-secondary btn-lg btn-block"
+          >
+            3 mois
+            <span id="span-5" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
 
-         <div class="col mt-4">
-            <button id='btn-step-6' type="button" data-num="6" class="btn btn-secondary btn-lg btn-block">6 mois
-               <span id="span-6" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-6"
+            type="button"
+            data-num="6"
+            class="btn btn-secondary btn-lg btn-block"
+          >
+            6 mois
+            <span id="span-6" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
 
-         <div class="col mt-4">
-            <button id='btn-step-7' type="button" data-num="7" class="btn btn-secondary btn-lg btn-block">An
-               <span id="span-7" class="badge badge-light badge-pill"></span>
-            </button>
-         </div>
+        <div class="col mt-4">
+          <button
+            id="btn-step-7"
+            type="button"
+            data-num="7"
+            class="btn btn-secondary btn-lg btn-block"
+          >
+            An
+            <span id="span-7" class="badge badge-light badge-pill"></span>
+          </button>
+        </div>
       </div>
-   </div>
+    </div>
 
-   <div id="card-container" class="container">
+    <div id="card-container" class="container"></div>
+    <!-- end card-container -->
 
-   </div> <!-- end card-container -->
-
-   <!-- Modal for update the card -->
-   <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal for update the card -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-               <form>
-                  <div class="mb-3">
-                     <label for="recipient-name" class="col-form-label">Recipient:</label>
-                     <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="mb-3">
-                     <label for="message-text" class="col-form-label">Message:</label>
-                     <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-               </form>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-         </div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"
+                  >Recipient:</label
+                >
+                <input type="text" class="form-control" id="recipient-name" />
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >Message:</label
+                >
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
       </div>
-   </div>
-   <!-- end modal -->
+    </div>
+    <!-- end modal -->
 
-   <!-- <script src="data.js"></script> -->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- <script src="data.js"></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
 
-   <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script> -->
-   <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script> -->
-   <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
-   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
-   <!-- <script src="sweetalert2.all.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script> -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
 
-   <script type="module" src="./js/main.js"></script>
-</body>
-
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>

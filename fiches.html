@@ -1,272 +1,382 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/bootswatchJournal.min.css" />
+    <title>Memory Box</title>
+  </head>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <!-- <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css"> -->
-   <link rel="stylesheet" href="css/bootswatchJournal.min.css">
-   <title>Memory Box</title>
-</head>
-
-<body style="background-color: whitesmoke;">
-
-   <!--  Navbar-->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <body style="background-color: whitesmoke">
+    <!--  Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-         <a class="navbar-brand" href="#">MemoryBox</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
+        <a class="navbar-brand" href="#">MemoryBox</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarColor01"
+          aria-controls="navbarColor01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item ">
-                  <a class="nav-link" href="index.html">Mémoriser <span class="sr-only">(current)</span></a>
-               </li>
-               <li class="nav-item active">
-                  <a class="nav-link" href="fiches.html">Gestion des fiches</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" data-toggle="modal" href="#modalAbout">A propos</a>
-               </li>
-            </ul>
-         </div>
-      </div><!-- end container-->
-   </nav>
-
-   <!-- Modal about -->
-   <!-- https://getbootstrap.com/docs/4.3/components/modal/ -->
-   <div class="modal fade" id="modalAbout" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalCenterTitle">
-                  MemoryBox version 0.3.4 - Auteur : Olivier Majchrzak
-               </h5>
-               <!-- <h6 class="modal-title" id="exampleModalCenterTitle">Auteur : Olivier Majchrzak</h6> -->
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-               <p>Version 0.3.5 (2023-10-21): Sauvegarde : Ajout multi-server + info server.</p>
-               <p>Version 0.3.4 (2023-07-26): Card : Ajout du rang B (italic).</p>
-               <p>Version 0.3.3 (2022-12-12): Card : Ajout d'un bouton retourner la carte.</p>
-               <p>Version 0.3.3 (2022-12-12): Data : Ajout d'une vérification et correction auto des ids.</p>
-               <p>Version 0.3.2 (2022-11-04): Card : Ajout de la série dans le titre.</p>
-               <p>Version 0.3.1 (2022-10-27): Sauvegarde : Ajout d'un backup des cartes dans le clipboard.</p>
-               <p>Version 0.3.0 (2022-10-20) : Gestion des fiches : Possibilité de donner une couleur aux cartes.</p>
-               <p>Version 0.2.2 : Gestion des fiches : Ajout de la selection par série.</p>
-               <p>Version 0.2.1 : Mémoriser : Ajout d'un filtre sur la liste des séries en fonction du thème choisi.</p>
-               <p>Version 0.2 : Gestion des fiches : Ajout de la selection par thème.</p>
-               <p>Version 0.1 : initial release.</p>
-            </div>
-            <div class="modal-footer">
-               <button id="backup" type="button" class="btn btn-info" >Clipboard</button>               
-               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-         </div>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html"
+                >Mémoriser <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="fiches.html">Gestion des fiches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" href="#modalAbout"
+                >A propos</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-   </div>
+      <!-- end container-->
+    </nav>
 
-   <div id="main-container" class="container mt-4">
+    <!-- Modal about -->
+    <!-- https://getbootstrap.com/docs/4.3/components/modal/ -->
+    <div
+      class="modal fade"
+      id="modalAbout"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">
+              MemoryBox version 0.3.7 - Auteur : Olivier Majchrzak
+            </h5>
+            <!-- <h6 class="modal-title" id="exampleModalCenterTitle">Auteur : Olivier Majchrzak</h6> -->
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Version 0.3.7 (2025-02-01):Ajout d'un lien sur la reconnaissance
+              d'images
+            </p>
+            <p>
+              Version 0.3.5 (2023-10-21): Sauvegarde : Ajout multi-server + info
+              server.
+            </p>
+            <p>Version 0.3.4 (2023-07-26): Card : Ajout du rang B (italic).</p>
+            <p>
+              Version 0.3.3 (2022-12-12): Card : Ajout d'un bouton retourner la
+              carte.
+            </p>
+            <p>
+              Version 0.3.3 (2022-12-12): Data : Ajout d'une vérification et
+              correction auto des ids.
+            </p>
+            <p>
+              Version 0.3.2 (2022-11-04): Card : Ajout de la série dans le
+              titre.
+            </p>
+            <p>
+              Version 0.3.1 (2022-10-27): Sauvegarde : Ajout d'un backup des
+              cartes dans le clipboard.
+            </p>
+            <p>
+              Version 0.3.0 (2022-10-20) : Gestion des fiches : Possibilité de
+              donner une couleur aux cartes.
+            </p>
+            <p>
+              Version 0.2.2 : Gestion des fiches : Ajout de la selection par
+              série.
+            </p>
+            <p>
+              Version 0.2.1 : Mémoriser : Ajout d'un filtre sur la liste des
+              séries en fonction du thème choisi.
+            </p>
+            <p>
+              Version 0.2 : Gestion des fiches : Ajout de la selection par
+              thème.
+            </p>
+            <p>Version 0.1 : initial release.</p>
+          </div>
+          <div class="modal-footer">
+            <button id="backup" type="button" class="btn btn-info">
+              Clipboard
+            </button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div id="main-container" class="container mt-4">
       <h1 class="display-4 text-center">
-         <i class="fas fa-book-open text-primary"></i> Gestion <span class="text-primary">des</span> Fiches
+        <i class="fas fa-book-open text-primary"></i> Gestion
+        <span class="text-primary">des</span> Fiches
       </h1>
       <!-- The question -->
       <form id="card-form">
-         <div class="row">
-            <div class="col col-6">
-               <div class="form-group">
-                  <label for="question">Question</label>
-                  <input type="text" id="question" class="form-control" required>
-               </div>
-            </div>
-            <div class="col col-6">
-               <div class="form-group">
-                  <label for="questionComplement">Complément question</label>
-                  <input type="text" id="questionComplement" class="form-control">
-               </div>
-            </div>
-         </div>
-
-         <!-- the answer -->
-         <div class="row">
-            <div class="col col-6">
-               <div class="form-group">
-                  <label for="answer">Réponse</label>
-                  <input type="text" id="answer" class="form-control">
-               </div>
-            </div>
-            <div class="col col-6">
-               <div class="form-group">
-                  <label for="answerComplement">Complément réponse</label>
-                  <input type="text" id="answerComplement" class="form-control">
-               </div>
-            </div>
-         </div>
-
-         <!-- theme -->
-         <div class="row">
-            <div class="col col-6">
-               <div class="form-group">
-                  <label for="theme">Thème</label>
-                  <input type="text" id="theme" class="form-control">
-               </div>
-            </div>
-            <!-- Set -->
-            <div class="col col-3">
-               <div class="form-group">
-                  <label for="set">Série</label>
-                  <input type="text" id="set" class="form-control">
-               </div>
-            </div>
-            <!-- step -->
-            <!-- <div class="col-auto mr-auto"> -->
-            <div class="col col-1 mr-auto">
-               <div class="form-group">
-                  <label for="step">Etape</label>
-                  <input type="number" id="step" class="form-control" value=1 min="1" max="7">
-               </div>
-            </div>
-
-            <div class="col col-2 ">
-               <!-- active or not -->
-               <div class="form-group custom-control custom-checkbox mt-5">
-                  <input type="checkbox" class="custom-control-input" id="chkActive" checked="">
-                  <label class="custom-control-label" for="chkActive">Fiche active</label>
-               </div>
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col col-6 md-6">
-               <select id="select-color" class="custom-select">
-                  <option selected="">Couleur de la carte</option>
-                  <option value="rouge">Rouge</option>
-                  <option value="ocre">Ocre</option>
-                  <option value="cian">Cian</option>
-                  <option value="bleu">Bleu</option>
-                  <option value="bleu-marine">Bleu marine 😉</option>
-                  <option value="vert">Vert</option>
-                  <option value="vert-fonce">Vert Foncé</option>
-                  <option value="vert-light">Vert clair</option>
-                  <option value="caca">Caca 💩</option>
-                  <option value="beige">Beige</option>
-                  <option value="orange-naruto">Orange Naruto</option>
-                  <option value="orange-fade">Orange Fade</option>
-                  <option value="jaune">Jaune</option>
-                  <option value="violet">Violet</option>
-                  <option value="violet-light">Violet Light</option>
-                  <option value="violet-hisoka">Violet Hisoka</option>
-                  <option value="noir">Noir</option>
-                  <option value="gris">Gris</option>
-               </select>
-            </div>
-            <!-- Italic police -->
-            <div class="col col-2 ">               
-               <div class="form-group custom-control custom-checkbox mt-2">
-                  <input type="checkbox" class="custom-control-input" id="chkItalic" value="RangB">
-                  <label class="custom-control-label" for="chkItalic">Rang B</label>
-               </div>
-            </div>
-
-         </div>
-
-         <br>
-
-         <!-- sens et id invisible juste pour stocker l'info lors de mise à jour-->
-         <div class="col-auto d-none">
+        <div class="row">
+          <div class="col col-6">
             <div class="form-group">
-               <label for="sens">Sens</label>
-               <input type="number" id="sens" class="form-control" value=1 min="1" max="2">
+              <label for="question">Question</label>
+              <input type="text" id="question" class="form-control" required />
             </div>
+          </div>
+          <div class="col col-6">
             <div class="form-group">
-               <label for="id">Id</label>
-               <input type="number" id="id" class="form-control">
+              <label for="questionComplement">Complément question</label>
+              <input type="text" id="questionComplement" class="form-control" />
             </div>
-         </div>
+          </div>
+        </div>
 
-         <input id="btn-add" type="submit" value="Ajouter la fiche" class="btn btn-primary btn-block">
-         <!-- <input id="btn-add" type="submit" value="Ajouter la fiche" class="btn btn-primary"> -->
+        <!-- the answer -->
+        <div class="row">
+          <div class="col col-6">
+            <div class="form-group">
+              <label for="answer">Réponse</label>
+              <input type="text" id="answer" class="form-control" />
+            </div>
+          </div>
+          <div class="col col-6">
+            <div class="form-group">
+              <label for="answerComplement">Complément réponse</label>
+              <input type="text" id="answerComplement" class="form-control" />
+            </div>
+          </div>
+        </div>
 
-         <!-- Button for updating a card -->
-         <button id="btn-update" class="btn btn-danger d-none">
-            <i class="fas fa-edit fa-lg"></i> Modifier la fiche
-         </button>
-         <button id="btn-cancel" class="btn btn-secondary d-none">
-            <i class="fas fa-edit fa-lg"></i> Annuler
-         </button>
+        <!-- theme -->
+        <div class="row">
+          <div class="col col-6">
+            <div class="form-group">
+              <label for="theme">Thème</label>
+              <input type="text" id="theme" class="form-control" />
+            </div>
+          </div>
+          <!-- Set -->
+          <div class="col col-3">
+            <div class="form-group">
+              <label for="set">Série</label>
+              <input type="text" id="set" class="form-control" />
+            </div>
+          </div>
+          <!-- step -->
+          <!-- <div class="col-auto mr-auto"> -->
+          <div class="col col-1 mr-auto">
+            <div class="form-group">
+              <label for="step">Etape</label>
+              <input
+                type="number"
+                id="step"
+                class="form-control"
+                value="1"
+                min="1"
+                max="7"
+              />
+            </div>
+          </div>
 
+          <div class="col col-2">
+            <!-- active or not -->
+            <div class="form-group custom-control custom-checkbox mt-5">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="chkActive"
+                checked=""
+              />
+              <label class="custom-control-label" for="chkActive"
+                >Fiche active</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-6 md-6">
+            <select id="select-color" class="custom-select">
+              <option selected="">Couleur de la carte</option>
+              <option value="rouge">Rouge</option>
+              <option value="ocre">Ocre</option>
+              <option value="cian">Cian</option>
+              <option value="bleu">Bleu</option>
+              <option value="bleu-marine">Bleu marine 😉</option>
+              <option value="vert">Vert</option>
+              <option value="vert-fonce">Vert Foncé</option>
+              <option value="vert-light">Vert clair</option>
+              <option value="caca">Caca 💩</option>
+              <option value="beige">Beige</option>
+              <option value="orange-naruto">Orange Naruto</option>
+              <option value="orange-fade">Orange Fade</option>
+              <option value="jaune">Jaune</option>
+              <option value="violet">Violet</option>
+              <option value="violet-light">Violet Light</option>
+              <option value="violet-hisoka">Violet Hisoka</option>
+              <option value="noir">Noir</option>
+              <option value="gris">Gris</option>
+            </select>
+          </div>
+          <!-- Italic police -->
+          <div class="col col-2">
+            <div class="form-group custom-control custom-checkbox mt-2">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="chkItalic"
+                value="RangB"
+              />
+              <label class="custom-control-label" for="chkItalic">Rang B</label>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <!-- sens et id invisible juste pour stocker l'info lors de mise à jour-->
+        <div class="col-auto d-none">
+          <div class="form-group">
+            <label for="sens">Sens</label>
+            <input
+              type="number"
+              id="sens"
+              class="form-control"
+              value="1"
+              min="1"
+              max="2"
+            />
+          </div>
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input type="number" id="id" class="form-control" />
+          </div>
+        </div>
+
+        <input
+          id="btn-add"
+          type="submit"
+          value="Ajouter la fiche"
+          class="btn btn-primary btn-block"
+        />
+        <!-- <input id="btn-add" type="submit" value="Ajouter la fiche" class="btn btn-primary"> -->
+
+        <!-- Button for updating a card -->
+        <button id="btn-update" class="btn btn-danger d-none">
+          <i class="fas fa-edit fa-lg"></i> Modifier la fiche
+        </button>
+        <button id="btn-cancel" class="btn btn-secondary d-none">
+          <i class="fas fa-edit fa-lg"></i> Annuler
+        </button>
       </form>
 
-      <hr>
+      <hr />
 
       <h3 class="display-3.5 text-center">
-         <i class="fas fa-th-list text-primary"></i> Liste <span class="text-primary">des</span> Fiches
+        <i class="fas fa-th-list text-primary"></i> Liste
+        <span class="text-primary">des</span> Fiches
       </h3>
 
-      <hr>
+      <hr />
 
       <div class="row">
-         <div class="col col-2">
-            <div class="form-group">
-               <!-- <label for="filter-theme">Thème</label> -->
-               <input type="text" id="filter-theme" class="form-control" placeholder="filtre par thème">
-            </div>
-         </div>
-         <div class="col col-2">
-            <div class="form-group">               
-               <input type="text" id="filter-set" class="form-control" placeholder="filtre par série">
-            </div>
-         </div>
-         <div class="col col-2">
-            <div class="form-group">
-               <input type="text" id="filter-question" class="form-control" placeholder="filtre par question">
-            </div>
-         </div>
+        <div class="col col-2">
+          <div class="form-group">
+            <!-- <label for="filter-theme">Thème</label> -->
+            <input
+              type="text"
+              id="filter-theme"
+              class="form-control"
+              placeholder="filtre par thème"
+            />
+          </div>
+        </div>
+        <div class="col col-2">
+          <div class="form-group">
+            <input
+              type="text"
+              id="filter-set"
+              class="form-control"
+              placeholder="filtre par série"
+            />
+          </div>
+        </div>
+        <div class="col col-2">
+          <div class="form-group">
+            <input
+              type="text"
+              id="filter-question"
+              class="form-control"
+              placeholder="filtre par question"
+            />
+          </div>
+        </div>
       </div>
 
       <table class="table table-striped mt-3">
-         <thead>
-            <tr>
-               <th>Thème</th>
-               <th>Série</th>
-               <th>Question</th>
-               <th>Réponse</th>
-               <th>Etape</th>
-               <th>Active</th>
-               <th>Sup.</th>
-               <th>Maj.</th>
-            </tr>
-         </thead>
-         <tbody id="card-list"></tbody>
+        <thead>
+          <tr>
+            <th>Thème</th>
+            <th>Série</th>
+            <th>Question</th>
+            <th>Réponse</th>
+            <th>Etape</th>
+            <th>Active</th>
+            <th>Sup.</th>
+            <th>Maj.</th>
+          </tr>
+        </thead>
+        <tbody id="card-list"></tbody>
       </table>
+    </div>
+    <!-- end main container-->
 
-   </div> <!-- end main container-->
-
-   <!-- bootstrap script -->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- bootstrap script -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
-   <!-- SweetAlert script -->
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
-   <!-- script perso -->
-   <script type="module" src="./js/fiche.js"></script>
-</body>
+      crossorigin="anonymous"
+    ></script>
+    <!-- SweetAlert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- script perso -->
+    <script type="module" src="./js/fiche.js"></script>
+  </body>
 </html>
