@@ -41,7 +41,7 @@ export class App {
   static consolidateCard(memorized, id) {
     // get the index of the card in the global array card
     let index = App.cards.findIndex((card) => card.id == id);
-    
+
     if (memorized) {
       App.cards[index].step++;
       if (App.cards[index].step > 7) {
@@ -101,7 +101,7 @@ export class App {
 
     // const filteredCards = App.cards.filter(card => card.step == App.step && card.active == true && card.set == 'Roi de France');
     // const filteredCards = App.cards.filter(card => card.step == 1 && card.active === true && card.set == 'Roi de France');
-    
+
     // del existing html
     document.querySelector("#card-container").innerHTML = "";
 

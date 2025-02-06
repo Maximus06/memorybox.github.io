@@ -14,11 +14,6 @@ function main() {
   // check integrity of the card id (corruption sometimes happens)
   Store.checkDoublon();
 
-  // Event: dom loaded
-  document.addEventListener("DOMContentLoaded", () => {
-    App.init();
-  });
-
   // Event: click on one of the icon in the header of the card
   document.querySelector("#card-container").addEventListener("click", (e) => {
     // click on the eye to see  the solution
@@ -135,4 +130,12 @@ function main() {
   // set dynamically the api_url (depending on server available)
   const images_link = document.getElementById("js-images-link");
   images_link.href = `${API_URL}images`;
+
+  // Event: dom loaded (dom loaded ne se déclenche suite à  l'appel de api_url ???)
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   console.log("dom loaded");
+  //   App.init();
+  // });
+
+  App.init();
 }

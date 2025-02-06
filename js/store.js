@@ -9,6 +9,7 @@ export class Store {
    */
   static getCards() {
     let cards;
+
     if (localStorage.getItem("cards") === null) {
       // extract exemple cards.
       cards = data.slice();
