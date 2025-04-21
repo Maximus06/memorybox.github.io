@@ -16,7 +16,9 @@ const server_urls = [
 
 if (API_URL === undefined) {
   SERVER = await get_server();
-  API_URL = SERVER.url;
+  if (SERVER != undefined) {
+    API_URL = SERVER.url;
+  }
 }
 
 const serverSpan = document.querySelector("#server");
@@ -170,8 +172,7 @@ export async function load() {
  * Return the first url server available
  */
 export async function get_server() {
-  // const response = await AJAX(server_urls[0] + "server")
-  // console.log("server name", response)
+  console.log("function get_server");
 
   let urlsToFetch = [];
   server_urls.forEach((url) => {
@@ -180,12 +181,24 @@ export async function get_server() {
   // add a promise for managing the timeout
   // urlsToFetch.push(timeout(TIMEOUT_SEC))
 
-  const res = await Promise.any(urlsToFetch);
-  const server = await res.json();
+  try {
+    const res = await Promise.any(urlsToFetch);
+    const server = await res.json();
+    return server;
+  } catch (error) {
+    console.log("Aucun server dispo", error.message);
+    return undefined;
+  }
 
-  // API_URL = server.url
-  return server;
+  // const res = await Promise.any(urlsToFetch).catch((e) => {
+  //   console.log("Aucun server dispo", e.message);
+  //   console.log("response", res);
+  //   return;
+  // });
 
-  // TODO: gérer les erreurs,
+  // if (res.ok) {
+  //   const server = await res.json();
+  //   return server;
+  // }
   // Documenter les certificats ssl.
 }

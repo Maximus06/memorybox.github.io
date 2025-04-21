@@ -8,6 +8,7 @@ export class App {
   }
 
   static init() {
+    console.log("dans init");
     // get the cards from the local store and filter on the active cards
     this.cards = Store.getCards().filter((card) => card.active === true);
 

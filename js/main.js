@@ -6,6 +6,7 @@ import { API_URL } from "./api.js";
 main();
 
 function main() {
+  console.log("fonction Main");
   if (document.querySelector("#card-container") === null) {
     console.log("on stop le chargement de app.js");
     return;
@@ -127,15 +128,11 @@ function main() {
     e.target.innerHTML = "Backup (copié)";
   });
 
-  // set dynamically the api_url (depending on server available)
-  const images_link = document.getElementById("js-images-link");
-  images_link.href = `${API_URL}images`;
-
-  // Event: dom loaded (dom loaded ne se déclenche suite à  l'appel de api_url ???)
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   console.log("dom loaded");
-  //   App.init();
-  // });
-
   App.init();
+
+  // set dynamically the api_url (depending on server available)
+  if (API_URL) {
+    const images_link = document.getElementById("js-images-link");
+    images_link.href = `${API_URL}images`;
+  }
 }
